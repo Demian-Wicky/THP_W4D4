@@ -5,4 +5,12 @@ class Application
     @game = Game.new
   end
 
+  def perform
+
+    
+  end
+
+
+
+
 end
