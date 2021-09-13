@@ -33,4 +33,5 @@ class Show
     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
     "
   end
+
 end
