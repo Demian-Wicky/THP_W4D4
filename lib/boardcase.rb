@@ -1,16 +1,9 @@
 class Boardcase
-  attr_accessor :value
+  attr_accessor :value , :position
 
-  def initialize # une nouvelle case est initialisée avec une valeur " "
-    @value = " "
-  end
-
-  def is_free? # retourne vrai si la case est vide, sinon retourne faux
-    if @value = " "
-      return true 
-    else
-      return false
-    end
+  def initialize(value)
+    @value = value.to_s
+    @position = position.to_s
   end
 
 end

@@ -3,20 +3,14 @@ Bundler.require
 
 $:.unshift File.expand_path("./../lib", __FILE__)
 require 'player'
-require 'boardcase'
 require 'game'
-require 'application'
-require 'show'
+require 'boardcase'
+require 'board'
 
-####### INTRO ##############
-views = Show.new
-views.intro
-views.rules
-####### GAME ###############
-app = Application.new
-app.perform
-############################
+
+
+game = Game.new.perform
+
 
 binding.pry
 puts "end of file "
-

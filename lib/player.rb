@@ -7,15 +7,4 @@ class Player
     @victory_counter = 0
   end
 
-  def plus_one_victory
-    @victory_counter += 1
-  end
-  # def to_s
-  #   puts "#{@name}, #{@pawn_type}, #{@victory_counter}"
-  # end
-
-  # def plays(input) # ex: input = B3
-  #   # @boardcases[input].value = self.pawn_type
-  # end
-
 end

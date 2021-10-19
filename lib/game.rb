@@ -1,37 +1,57 @@
-class Game 
-  attr_accessor :players, :boardcases, :turn_counter
+class Game
+  attr_accessor :players , :board, :boardcases
 
   def initialize
-    #intro
-    @players = [] # on initialise un array vide de joueurs
-    create_players # on créé les joueurs avec la méthode create_players en dessous
-    @boardcases = [] # on initialise un array vide qui va contenir les cases
-    9.times do # on génère 9 cases puis
-      @boardcases << Boardcase.new  # on les injecte dans l'array
+    create_players
+    create_board
+    @turn = 1
+  end
+
+  def create_players
+    player1 = Player.new("Demian", "X")
+    player2 = Player.new("Marc", "O")
+    @players = [player1, player2]
+  end
+
+  def create_board
+    @board = Board.new
+  end
+
+  def current_player_plays
+    positions = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+    current_player = @players[@turn%2]
+    puts "C'est à #{current_player.name} de jouer.".yellow
+    puts "Quelle case veux-tu jouer ?"
+    puts "> "
+    input = gets.chomp.to_s.upcase
+    if valid_input_check(input) == true
+      @board.boardcases[positions.index(input)].value = current_player.pawn_type #https://apidock.com/ruby/Array/find_index
     end
-    @turn_counter = 0 # on initialise un compteur de tours qui pourra augmenter avec la méthode plus_one_turn en dessous
   end
 
-  def create_players # créé les deux joueurs du Game
-    puts "Joueur 1, quel est ton nom ? (Tu prendra les X)"
-    print "> "
-    name = gets.chomp
-    player1 = Player.new(name, "X")
-    @players << player1
-    puts "Joueur 2, quel est ton nom ? (Tu prendra les O)"
-    print "> "
-    name = gets.chomp
-    player2 = Player.new(name, "O")
-    @players << player2
+  def valid_input_check(input)
+    positions = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+    if positions.include? input #&& @board.boardcases[positions.index(input)].value.to_s == "·"
+      puts "très bon choix".green
+      return true
+    else
+      puts "#{input} est un choix non valide, recommence.".red
+      current_player_plays
+    end
   end
 
-  def plus_one_turn # incrémente de 1 le compteur de tours
-    @turn_counter += 1
+
+  def perform
+    while @board.is_full? == false
+      system 'clear'
+      @board.show
+      puts "ⓘ tour n° #{@turn}".magenta
+      puts "ⓘ plateau plein ? #{@board.is_full?}".magenta
+      puts "ⓘ victoires #{@players[0].name}: #{@players[0].victory_counter}".magenta
+      puts "ⓘ victoires #{@players[1].name}: #{@players[1].victory_counter}".magenta
+      current_player_plays
+      @turn += 1
+    end
   end
-
-  def victory? # détecte si il y a une victoire
-
-  end
-
 
 end

@@ -20,18 +20,5 @@ class Show
     puts
   end
 
-  def board
-    puts"
-    ▓▓▓ A ▓ B ▓ C ▓▓▓
-    ▓ ╔═══╦═══╦═══╗ ▓ 
-    1 ║ #{@boardcases[0].value} ║ #{@boardcases[1].value} ║ #{@boardcases[2].value} ║ ▓
-    ▓ ╠═══╬═══╬═══╣ ▓
-    2 ║ #{@boardcases[3].value} ║ #{@boardcases[4].value} ║ #{@boardcases[5].value} ║ ▓
-    ▓ ╠═══╬═══╬═══╣ ▓
-    3 ║ #{@boardcases[6].value} ║ #{@boardcases[7].value} ║ #{@boardcases[8].value} ║ ▓
-    ▓ ╚═══╩═══╩═══╝ ▓
-    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-    "
-  end
 
 end
