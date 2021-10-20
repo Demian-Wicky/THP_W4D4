@@ -31,12 +31,13 @@ class Game
 
   def valid_input_check(input)
     positions = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
-    if positions.include? input #&& @board.boardcases[positions.index(input)].value.to_s == "·"
+    if (positions.include? input) && (@board.boardcases[positions.index(input)].value == "·")
       puts "très bon choix".green
       return true
     else
-      puts "#{input} est un choix non valide, recommence.".red
+      puts  "#{input} est un choix non valide, recommence.".red
       current_player_plays
+      return false
     end
   end
 
@@ -45,7 +46,7 @@ class Game
     while @board.is_full? == false
       system 'clear'
       @board.show
-      puts "ⓘ tour n° #{@turn}".magenta
+      puts "ⓘ tour n° #{@turn} / tour de #{@players[@turn%2].name}".magenta
       puts "ⓘ plateau plein ? #{@board.is_full?}".magenta
       puts "ⓘ victoires #{@players[0].name}: #{@players[0].victory_counter}".magenta
       puts "ⓘ victoires #{@players[1].name}: #{@players[1].victory_counter}".magenta

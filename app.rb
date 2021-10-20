@@ -12,5 +12,5 @@ require 'board'
 game = Game.new.perform
 
 
-binding.pry
-puts "end of file "
+# binding.pry
+# puts "end of file "
