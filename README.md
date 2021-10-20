@@ -1,6 +1,6 @@
 # Tic-tac-toe 👾 (100% finished)
 
-A Tic-tac-toe game made with ruby
+A Tic-tac-toe game made with ruby.
 <img src="preview/preview.png" >
 
 ## Table of contents
