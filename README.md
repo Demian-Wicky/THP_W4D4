@@ -1,4 +1,4 @@
-# Tic-tac-toe ⭕❌⭕ (100% finished)
+# Tic-tac-toe 👾 (100% finished)
 
 A Tic-tac-toe game made with ruby
 <img src="preview/preview.png" >
