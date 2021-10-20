@@ -15,15 +15,15 @@ class Board
 
   def show
     puts"
-    ▓▓▓ A ▓ B ▓ C ▓▓▓
-    ▓ ╔═══╦═══╦═══╗ ▓ 
-    1 ║ #{self.boardcases[0].value} ║ #{self.boardcases[3].value} ║ #{self.boardcases[6].value} ║ ▓
-    ▓ ╠═══╬═══╬═══╣ ▓
-    2 ║ #{self.boardcases[1].value} ║ #{self.boardcases[4].value} ║ #{self.boardcases[7].value} ║ ▓
-    ▓ ╠═══╬═══╬═══╣ ▓
-    3 ║ #{self.boardcases[2].value} ║ #{self.boardcases[5].value} ║ #{self.boardcases[8].value} ║ ▓
-    ▓ ╚═══╩═══╩═══╝ ▓
-    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+    ▓▓▓▓ A ▓ B ▓ C ▓▓▓▓
+    ▓▓ ╔═══╦═══╦═══╗ ▓▓
+     1 ║ #{self.boardcases[0].value} ║ #{self.boardcases[3].value} ║ #{self.boardcases[6].value} ║ ▓▓
+    ▓▓ ╠═══╬═══╬═══╣ ▓▓
+     2 ║ #{self.boardcases[1].value} ║ #{self.boardcases[4].value} ║ #{self.boardcases[7].value} ║ ▓▓
+    ▓▓ ╠═══╬═══╬═══╣ ▓▓
+     3 ║ #{self.boardcases[2].value} ║ #{self.boardcases[5].value} ║ #{self.boardcases[8].value} ║ ▓▓
+    ▓▓ ╚═══╩═══╩═══╝ ▓▓
+    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
     "
   end
 
