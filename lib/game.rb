@@ -9,9 +9,21 @@ class Game
   end
 
   def create_players
-    player1 = Player.new("Demian", "X")
-    player2 = Player.new("Marc", "O")
+    player1 = Player.new(nil, "X")
+    player2 = Player.new(nil, "O")
     @players = [player1, player2]
+  end
+
+  def define_players_names
+    puts "Joueur1, quel est tom nom ?"
+    print "> "
+    name1 = gets.chomp.to_s
+    @players[0].name = name1
+    system 'clear'
+    puts "Joueur2, quel est tom nom ?"
+    print "> "
+    name2 = gets.chomp.to_s
+    @players[1].name = name2
   end
 
   def create_board
@@ -57,6 +69,7 @@ class Game
     Show.new.intro
     gets
     system 'clear'
+    define_players_names
 
     while @ongoing == true
 
