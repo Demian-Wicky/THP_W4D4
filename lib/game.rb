@@ -4,7 +4,8 @@ class Game
   def initialize
     create_players
     create_board
-    @turn = 1
+    @turn = -1
+    @ongoing = true
   end
 
   def create_players
@@ -22,7 +23,7 @@ class Game
     current_player = @players[@turn%2]
     puts "C'est à #{current_player.name} de jouer.".yellow
     puts "Quelle case veux-tu jouer ?"
-    puts "> "
+    print "> "
     input = gets.chomp.to_s.upcase
     if valid_input_check(input) == true
       @board.boardcases[positions.index(input)].value = current_player.pawn_type #https://apidock.com/ruby/Array/find_index
@@ -41,19 +42,51 @@ class Game
     end
   end
 
+  def status
+    puts "ⓘ ongoing : #{@ongoing}".magenta
+    puts "ⓘ tour n° #{@turn} / tour de #{@players[@turn%2].name}".magenta
+    puts "ⓘ plateau plein ? #{@board.is_full?}".magenta
+    puts "ⓘ victoire détectée ? #{@board.victory?}".magenta
+    puts "ⓘ victoires #{@players[0].name} : #{@players[0].victory_counter}".magenta
+    puts "ⓘ victoires #{@players[1].name} : #{@players[1].victory_counter}".magenta
+  end
+
 
   def perform
-    while @board.is_full? == false
-      system 'clear'
-      @board.show
-      puts "ⓘ tour n° #{@turn} / tour de #{@players[@turn%2].name}".magenta
-      puts "ⓘ plateau plein ? #{@board.is_full?}".magenta
-      puts "ⓘ victoire détectée ? #{@board.victory_finder}".magenta
-      puts "ⓘ victoires #{@players[0].name}: #{@players[0].victory_counter}".magenta
-      puts "ⓘ victoires #{@players[1].name}: #{@players[1].victory_counter}".magenta
-      current_player_plays
+    
+    Show.new.intro
+    gets
+    system 'clear'
+
+    while @ongoing == true
+
       @turn += 1
+      @board.show
+      status
+      current_player_plays
+      system 'clear'
+
+      if @board.victory? == true # if there is a victory
+        @board.show
+        puts "#{@players[@turn%2].name} a gagné !!!"
+        @players[@turn%2].victory_counter += 1
+        status
+        @board.reset
+        gets
+        system 'clear'
+      end
+
+      if @board.is_full? == true # if the board is full and there is no victory
+        @board.show
+        puts "pas de vainqueur !!!"
+        status
+        @board.reset
+        gets
+        system 'clear'
+      end
+
     end
   end
+
 
 end

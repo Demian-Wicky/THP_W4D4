@@ -41,16 +41,22 @@ class Board
     end
   end
 
-  def victory_finder
+  def victory?
     winning_lists_idxs = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[6,4,2]]
-    winning_lists_idxs.each_with_index do |list_idxs, idx|
-      check = ""
+    winning_lists_idxs.each do |list_idxs|
+      # print "#{self.boardcases[list_idxs[0]].value + self.boardcases[list_idxs[1]].value + self.boardcases[list_idxs[2]].value}".magenta
+      # puts
       check = self.boardcases[list_idxs[0]].value + self.boardcases[list_idxs[1]].value + self.boardcases[list_idxs[2]].value
-      if check != "XXX" && check != "OOO"
-        return false
-      else
+      if check == "XXX" || check == "OOO"
         return true
       end
+    end
+    return false
+  end
+
+  def reset
+    @boardcases.each do |boardcase|
+      boardcase.value = "·"
     end
   end
 

@@ -12,12 +12,10 @@ class Show
     puts " ☆"+"╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ".cyan  + "v1.0".blue
     puts "                ☆" 
     puts
-  end
-
-  def rules
-    puts "Le but du jeu est d’aligner avant son adversaire 3 symboles identiques".magenta
+    puts "Le but du jeu est d’aligner 3 symboles identiques avant son adversaire.".magenta
     puts "(horizontalement, verticalement ou en diagonale)".blue
     puts
+    puts "Appuie sur [Entrée] pour jouer."
   end
 
 

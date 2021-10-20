@@ -6,11 +6,8 @@ require 'player'
 require 'game'
 require 'boardcase'
 require 'board'
+require 'show'
 
-
+system 'clear'
 
 game = Game.new.perform
-
-
-# binding.pry
-# puts "end of file "
