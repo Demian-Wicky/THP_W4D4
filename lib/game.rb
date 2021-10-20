@@ -48,6 +48,7 @@ class Game
       @board.show
       puts "ⓘ tour n° #{@turn} / tour de #{@players[@turn%2].name}".magenta
       puts "ⓘ plateau plein ? #{@board.is_full?}".magenta
+      puts "ⓘ victoire détectée ? #{@board.victory_finder}".magenta
       puts "ⓘ victoires #{@players[0].name}: #{@players[0].victory_counter}".magenta
       puts "ⓘ victoires #{@players[1].name}: #{@players[1].victory_counter}".magenta
       current_player_plays

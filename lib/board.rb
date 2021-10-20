@@ -29,19 +29,30 @@ class Board
 
   def is_full?
     counter = 0
-
     @boardcases.each do |boardcase|
       if boardcase.value == "X" || boardcase.value == "O"
         counter += 1
       end
     end
-
     if counter == 9
       return true
     else
       return false
     end
-
   end
 
+  def victory_finder
+    winning_lists_idxs = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[6,4,2]]
+    winning_lists_idxs.each_with_index do |list_idxs, idx|
+      check = ""
+      check = self.boardcases[list_idxs[0]].value + self.boardcases[list_idxs[1]].value + self.boardcases[list_idxs[2]].value
+      if check != "XXX" && check != "OOO"
+        return false
+      else
+        return true
+      end
+    end
+  end
+
+  
 end
