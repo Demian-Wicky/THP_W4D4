@@ -15,15 +15,16 @@ class Game
   end
 
   def define_players_names
-    puts "Joueur1, quel est tom nom ?"
+    puts "Joueur1, quel est tom nom ? Tu prendra les X."
     print "> "
     name1 = gets.chomp.to_s
     @players[0].name = name1
     system 'clear'
-    puts "Joueur2, quel est tom nom ?"
+    puts "Joueur2, quel est tom nom ? Tu prendra les O."
     print "> "
     name2 = gets.chomp.to_s
     @players[1].name = name2
+    system 'clear'
   end
 
   def create_board
